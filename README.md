@@ -17,12 +17,6 @@ PathFinder AI is an innovative platform designed to assist individuals in findin
 3. Explore Opportunities: Browse jobs, learn about required qualifications, and access skill-building resources.
 4. Follow-Up and Contact: Use your personalized QR code to connect with job platforms or industry-specific websites that match your career interests.
 
-## Technologies Used
-
-- Frontend: HTML, CSS, Bootstrap, JavaScript
-- Backend: Python, Flask, AI algorithms for job recommendation
-- Database: [Insert database technology here if applicable]
-
 ## Installation
 
 To run the project locally, follow these steps:
