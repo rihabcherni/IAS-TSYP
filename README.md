@@ -10,13 +10,6 @@ PathFinder AI is an innovative platform designed to assist individuals in findin
 - Skills Development: Recommendations for training and skills development based on personalized career paths.
 - QR Code Integration: Use personalized QR codes to connect with job platforms or industry websites.
 
-## How It Works
-
-1. Enter Your Information: Fill out a questionnaire about your skills, experience, salary expectations, and career preferences.
-2. Get Personalized Recommendations: The AI analyzes your inputs and provides job suggestions tailored to your qualifications and goals.
-3. Explore Opportunities: Browse jobs, learn about required qualifications, and access skill-building resources.
-4. Follow-Up and Contact: Use your personalized QR code to connect with job platforms or industry-specific websites that match your career interests.
-
 ## Installation
 
 To run the project locally, follow these steps:
