@@ -90,30 +90,44 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/cv.png" style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/r.jpg" style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 quote-text py-3 wow fadeIn" data-wow-delay="0.5s">
                     <div class="p-lg-5 pe-lg-0">
                         <!-- Form Section -->
-                        <h3 class="animated slideInDown">Find Your Path to a Bright Industrial Career with PathFinder AI</h3>
-                        <p class="animated slideInDown">Discover how our AI assistant helps you find industrial career opportunities tailored to your preferences.</p>
-
+                        <h3 class="animated slideInDown">Optimized Transport Route Finder</h3>
                         <div id="form-section" class="container py-2">
-                            <h3 class="text-center text-primary">Career Path Questionnaire</h3>
-                            <form id="career-form" >
+                            <form id="route-form" >
                                 <div class="mb-3">
-                                    <label for="cv" class="form-label">Upload Your CV</label>
-                                    <input type="file" class="form-control" id="cv" required>
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control  border-0" id="email" placeholder="Enter your email" required>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="desired-grade" class="form-label">Desired Grade</label>
-                                    <input type="text" class="form-control" id="desired-grade" placeholder="Enter your desired grade" required>
+                                    <label for="vehicle" class="form-label">Vehicle Type</label>
+                                    <input type="text" class="form-control" id="vehicle" placeholder="Enter your vehicle details" required>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="model" class="form-label">Vehicle Model</label>
+                                    <input type="text" class="form-control" id="model" placeholder="Enter your vehicle model" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="year" class="form-label">Manufacturing Year</label>
+                                    <input type="number" class="form-control" id="year" placeholder="Enter manufacturing year" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="departure" class="form-label">Departure Location</label>
+                                    <input type="text" class="form-control" id="departure" placeholder="Enter departure location" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="destination" class="form-label">Destination Location</label>
+                                    <input type="text" class="form-control" id="destination" placeholder="Enter destination location" required>
+                                </div>
+                                
                                 <div class="col-12 text-center">
                                     <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
                                 </div>
@@ -125,106 +139,45 @@
         </div>
     </div>
 
-    <!-- Chatbot Popup -->
-    <div class="chatbot-popup" id="chatbot">
-        <div class="flex justify-between items-center  py-2">
-            <h5>Skills and Training Suggestions</h5>
-            <button onclick="closeChatbot()" class="btn btn-sm bg-red-600 text-white rounded-full px-2 py-2 text-sm font-bold">X</button>    
-        </div>
-        <div id="chat-container"  class="bg-white flex flex-1 max-h-[80vh] min-h-[50vh] flex-col  py-2 overflow-y-scroll" >
-            <div class="flex gap-11 justify-start mt-3">
-                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
-                <p id="chatbot-content1"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
-                ></p> 
-            </div>
-            <div class="flex gap-11 justify-start mt-3">
-                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
-                <p id="chatbot-content2"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
-                ></p> 
-            </div>
-            <div class="flex gap-11 justify-start mt-3">
-                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
-                <p id="chatbot-content3"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
-                ></p> 
-            </div>
-            <div class="flex gap-11 justify-start mt-3">
-                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
-                <p id="chatbot-content4"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
-                ></p> 
-            </div>
-            <!-- Chat content dynamically loaded -->
-        </div>
-        <form id="chat-form" class="w-full flex items-center mt-4">
-            <input
-            id="message"
-            type="text"
-            class="flex-1 px-4 py-2 border rounded"
-            placeholder="Type a message..."
-            />
-            <button
-            type="submit"
-            class="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
-            >
-            Send
-            </button>
-        </form>
-        <script>
-            const userChatDiv = (data) => {
-            return `
-                <div class="flex gap-1 justify-end mt-3">
-                <p
-                    class="bg-gradient-to-tr from-blue-900 to-blue-300 py-2 h-fit px-3 text-lg text-right shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%]"
-                >
-                    ${data}
-                </p>
-                <img
-                    src="img/user.jpg"
-                    class="w-6 h-6 rounded-full ml-2 mb-1"
-                    alt=""
-                />
-                </div>
-            `;
-            };
-    
-            const aiChatDiv = (data) => {
-            return `
-                <div class="flex gap-1 justify-start mt-3">
-                <img
-                    src="img/chat-bot.jpg"
-                    class="w-6 h-6 rounded-full ml-2 mb-1"
-                    alt=""
-                />
-                <p
-                    class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-bl-3xl rounded-r-3xl w-fit max-w-[90%] md:max-w-[60%]"
-                >
-                    ${data}
-                </p>
-                </div>
-            `;
-            };
-    
-            const userMessage = document.getElementById("message");
-            const chatContainer = document.getElementById("chat-container");
-            const chatForm = document.getElementById("chat-form");
-    
-            const handleSubmit = (event) => {
-            event.preventDefault();
-            const userPrompt = userMessage.value.trim();
-            if (userPrompt === "") return;
-    
-            chatContainer.innerHTML += userChatDiv(userPrompt);
-            userMessage.value = "";
-    
-            // Simulate AI response
-            setTimeout(() => {
-                const response = "Gaining practical experience through internships, participating in innovative projects, and staying updated with emerging technologies in the mechanical field will also contribute significantly to your success.";
-                chatContainer.innerHTML += aiChatDiv(response);
-            }, 1000);
-            };
-    
-            chatForm.addEventListener("submit", handleSubmit);
-        </script>
+    <!-- Google Maps iframe for displaying route -->
+    <div id="map" class="container mt-4" style="display:none;">
+        <h4 class="text-center">Optimized Route</h4>
+        <iframe id="google-map" class="position-absolute w-100 h-100" style="object-fit: cover;"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102253.03875730638!2d10.035436743359373!3d36.7847799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd340576fc1a05%3A0x25fc1aa869f8cfb6!2sEcole%20Nationale%20Sup%C3%A9rieure%20d&#39;ing%C3%A9nieurs%20de%20Tunis!5e0!3m2!1sfr!2stn!4v1733420349240!5m2!1sfr!2stn" 
+        frameborder="0" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
     </div>
+
+    <script>
+        // AI-based route optimization simulation
+        // function optimizeRoute(departure, destination, vehicle) {
+        //     // Simulate a simple AI function that returns an optimized route link (Google Maps API call can replace this in real-world)
+        //     return `https://www.google.com/maps/embed/v1/directions?key=YOUR_GOOGLE_MAPS_API_KEY&origin=${departure}&destination=${destination}&mode=driving&avoid=tolls`;
+        // }
+
+        // Handle form submission
+        document.getElementById("route-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const departure = document.getElementById("departure").value;
+            const destination = document.getElementById("destination").value;
+            const vehicle = document.getElementById("vehicle").value;
+            document.getElementById('map').style.display = 'block';
+
+            // Get optimized route and update the Google Map iframe
+            // const routeUrl = optimizeRoute(departure, destination, vehicle);
+            document.getElementById("google-map").src = routeUrl;
+
+            // AI Chatbot response
+            document.getElementById("chat-container").innerHTML += `
+                <div class="flex gap-1 justify-start mt-3">
+                    <img src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                    <p class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-bl-3xl rounded-r-3xl w-fit max-w-[90%] md:max-w-[60%]">
+                        Based on your inputs, here's the optimized route.
+                    </p>
+                </div>
+            `;
+        });
+    </script>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-body footer  wow fadeIn" data-wow-delay="0.1s">
