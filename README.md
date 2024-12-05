@@ -1,6 +1,5 @@
 It seems you're working on a website or a project involving "PathFinder AI." To help you create a README file, here's a template you can use:
 
-```markdown
 # PathFinder AI
 
 PathFinder AI is an innovative platform designed to assist individuals in finding personalized career opportunities in the industrial sector, focusing on youth and women. The AI-powered system analyzes user information to recommend tailored career paths and skills development opportunities. PathFinder AI aims to contribute to the industrial transformation in Tunisia by empowering underrepresented communities.
@@ -44,7 +43,7 @@ To run the project locally, follow these steps:
    ```bash
    npm start
    ```
-   
+
 ## Screenshots   
 ![img](img/img/1.png)
 ![img](img/img/2.png)
