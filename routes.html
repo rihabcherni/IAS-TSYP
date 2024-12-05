@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PathFinder AI Energy/title>
+    <title>PathFinder AI</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -19,7 +19,30 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
+    <style>
+        .chatbot-popup {
+            position: fixed;
+            bottom: 40px;
+            right: 20px;
+            top: 40px;
+            width: 800px;
+            background: #efefef;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            padding: 15px;
+            z-index: 1000;
+        }
+        .chatbot-popup h5 {
+            color: #1a5300;
+        }
+        .chatbot-popup button {
+            background: #1a5300;
+            color: white;
+            border: none;
+        }
+    </style>
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -30,6 +53,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-chat.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,47 +75,155 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html#" class="nav-item nav-link active">Home</a>
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="index.html#works" class="nav-item nav-link">How Works</a>
                 <a href="index.html#about" class="nav-item nav-link">About</a>
                 <a href="index.html#service" class="nav-item nav-link">Service</a>
-                <a href="index.html#project" class="nav-item nav-link">Project</a>
                 <a href="index.html#contact" class="nav-item nav-link">Contact</a>
             </div>
             <a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Login/Register<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
-
     <div class="container-fluid bg-light overflow-hidden px-lg-0">
         <div class="container quote px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/1.PNG" style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/cv.png" style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 quote-text py-3 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-lg-5 pe-lg-0 text-center">
-                        <h2 class="text-primary py-2">Login</h2>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                    <div class="p-lg-5 pe-lg-0">
+                        <!-- Form Section -->
+                        <h3 class="animated slideInDown">Find Your Path to a Bright Industrial Career with PathFinder AI</h3>
+                        <p class="animated slideInDown">Discover how our AI assistant helps you find industrial career opportunities tailored to your preferences.</p>
+
+                        <div id="form-section" class="container py-2">
+                            <h3 class="text-center text-primary">Career Path Questionnaire</h3>
+                            <form id="career-form" >
+                                <div class="mb-3">
+                                    <label for="cv" class="form-label">Upload Your CV</label>
+                                    <input type="file" class="form-control" id="cv" required>
                                 </div>
-                                <div class="col-12">
-                                    <input type="password" class="form-control border-0" placeholder="Your Password" style="height: 55px;">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control  border-0" id="email" placeholder="Enter your email" required>
                                 </div>
-                                <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="desired-grade" class="form-label">Desired Grade</label>
+                                    <input type="text" class="form-control" id="desired-grade" placeholder="Enter your desired grade" required>
+                                </div>
+                                <div class="col-12 text-center">
                                     <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
                                 </div>
-                            </div>
-                        </form>
-                        <p class="mt-3">Don't have an account? <a href="register.html">Register here</a></p>
-                        <p><a href="forgot-password.html">Forgot Password?</a></p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Chatbot Popup -->
+    <div class="chatbot-popup" id="chatbot">
+        <div class="flex justify-between items-center  py-2">
+            <h5>Skills and Training Suggestions</h5>
+            <button onclick="closeChatbot()" class="btn btn-sm bg-red-600 text-white rounded-full px-2 py-2 text-sm font-bold">X</button>    
+        </div>
+        <div id="chat-container"  class="bg-white flex flex-1 max-h-[80vh] min-h-[50vh] flex-col  py-2 overflow-y-scroll" >
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content1"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content2"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content3"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content4"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <!-- Chat content dynamically loaded -->
+        </div>
+        <form id="chat-form" class="w-full flex items-center mt-4">
+            <input
+            id="message"
+            type="text"
+            class="flex-1 px-4 py-2 border rounded"
+            placeholder="Type a message..."
+            />
+            <button
+            type="submit"
+            class="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
+            >
+            Send
+            </button>
+        </form>
+        <script>
+            const userChatDiv = (data) => {
+            return `
+                <div class="flex gap-1 justify-end mt-3">
+                <p
+                    class="bg-gradient-to-tr from-blue-900 to-blue-300 py-2 h-fit px-3 text-lg text-right shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%]"
+                >
+                    ${data}
+                </p>
+                <img
+                    src="img/user.jpg"
+                    class="w-6 h-6 rounded-full ml-2 mb-1"
+                    alt=""
+                />
+                </div>
+            `;
+            };
+    
+            const aiChatDiv = (data) => {
+            return `
+                <div class="flex gap-1 justify-start mt-3">
+                <img
+                    src="img/chat-bot.jpg"
+                    class="w-6 h-6 rounded-full ml-2 mb-1"
+                    alt=""
+                />
+                <p
+                    class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-bl-3xl rounded-r-3xl w-fit max-w-[90%] md:max-w-[60%]"
+                >
+                    ${data}
+                </p>
+                </div>
+            `;
+            };
+    
+            const userMessage = document.getElementById("message");
+            const chatContainer = document.getElementById("chat-container");
+            const chatForm = document.getElementById("chat-form");
+    
+            const handleSubmit = (event) => {
+            event.preventDefault();
+            const userPrompt = userMessage.value.trim();
+            if (userPrompt === "") return;
+    
+            chatContainer.innerHTML += userChatDiv(userPrompt);
+            userMessage.value = "";
+    
+            // Simulate AI response
+            setTimeout(() => {
+                const response = "Gaining practical experience through internships, participating in innovative projects, and staying updated with emerging technologies in the mechanical field will also contribute significantly to your success.";
+                chatContainer.innerHTML += aiChatDiv(response);
+            }, 1000);
+            };
+    
+            chatForm.addEventListener("submit", handleSubmit);
+        </script>
     </div>
 
     <!-- Footer Start -->

@@ -22,10 +22,11 @@
     <style>
         .chatbot-popup {
             position: fixed;
-            bottom: 20px;
+            bottom: 40px;
             right: 20px;
-            width: 700px;
-            background: #f8f9fa;
+            top: 40px;
+            width: 800px;
+            background: #efefef;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
@@ -74,11 +75,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#service" class="nav-item nav-link">Service</a>
-                <a href="#project" class="nav-item nav-link">Project</a>
-                <a href="#contact" class="nav-item nav-link">Contact</a>
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="index.html#works" class="nav-item nav-link">How Works</a>
+                <a href="index.html#about" class="nav-item nav-link">About</a>
+                <a href="index.html#service" class="nav-item nav-link">Service</a>
+                <a href="index.html#contact" class="nav-item nav-link">Contact</a>
             </div>
             <a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Login/Register<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
@@ -125,88 +126,106 @@
         </div>
     </div>
 
-<!-- Chatbot Popup -->
-<div class="chatbot-popup" id="chatbot">
-    <h5>Skills and Training Suggestions</h5>
-    <p id="chatbot-content">Loading...</p>
-    <div
-        id="chat-container"
-        class="bg-white flex flex-1 max-h-[80vh] min-h-[50vh] flex-col overflow-y-scroll"
-    >
-        <!-- Chat content dynamically loaded -->
+    <!-- Chatbot Popup -->
+    <div class="chatbot-popup" id="chatbot">
+        <div class="flex justify-between items-center  py-2">
+            <h5>Skills and Training Suggestions</h5>
+            <button onclick="closeChatbot()" class="btn btn-sm bg-red-600 text-white rounded-full px-2 py-2 text-sm font-bold">X</button>    
+        </div>
+        <div id="chat-container"  class="bg-white flex flex-1 max-h-[80vh] min-h-[50vh] flex-col  py-2 overflow-y-scroll" >
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content1"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content2"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content3"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <div class="flex gap-11 justify-start mt-3">
+                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
+                <p id="chatbot-content4"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
+                ></p> 
+            </div>
+            <!-- Chat content dynamically loaded -->
+        </div>
+        <form id="chat-form" class="w-full flex items-center mt-4">
+            <input
+            id="message"
+            type="text"
+            class="flex-1 px-4 py-2 border rounded"
+            placeholder="Type a message..."
+            />
+            <button
+            type="submit"
+            class="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
+            >
+            Send
+            </button>
+        </form>
+        <script>
+            const userChatDiv = (data) => {
+            return `
+                <div class="flex gap-1 justify-end mt-3">
+                <p
+                    class="bg-gradient-to-tr from-blue-900 to-blue-300 py-2 h-fit px-3 text-lg text-right shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%]"
+                >
+                    ${data}
+                </p>
+                <img
+                    src="img/user.jpg"
+                    class="w-6 h-6 rounded-full ml-2 mb-1"
+                    alt=""
+                />
+                </div>
+            `;
+            };
+    
+            const aiChatDiv = (data) => {
+            return `
+                <div class="flex gap-1 justify-start mt-3">
+                <img
+                    src="img/chat-bot.jpg"
+                    class="w-6 h-6 rounded-full ml-2 mb-1"
+                    alt=""
+                />
+                <p
+                    class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-bl-3xl rounded-r-3xl w-fit max-w-[90%] md:max-w-[60%]"
+                >
+                    ${data}
+                </p>
+                </div>
+            `;
+            };
+    
+            const userMessage = document.getElementById("message");
+            const chatContainer = document.getElementById("chat-container");
+            const chatForm = document.getElementById("chat-form");
+    
+            const handleSubmit = (event) => {
+            event.preventDefault();
+            const userPrompt = userMessage.value.trim();
+            if (userPrompt === "") return;
+    
+            chatContainer.innerHTML += userChatDiv(userPrompt);
+            userMessage.value = "";
+    
+            // Simulate AI response
+            setTimeout(() => {
+                const response = "Gaining practical experience through internships, participating in innovative projects, and staying updated with emerging technologies in the mechanical field will also contribute significantly to your success.";
+                chatContainer.innerHTML += aiChatDiv(response);
+            }, 1000);
+            };
+    
+            chatForm.addEventListener("submit", handleSubmit);
+        </script>
     </div>
-      <form id="chat-form" class="w-full flex items-center mt-4">
-        <input
-          id="message"
-          type="text"
-          class="flex-1 px-4 py-2 border rounded"
-          placeholder="Type a message..."
-        />
-        <button
-          type="submit"
-          class="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
-        >
-          Send
-        </button>
-      </form>
-      <script>
-        const userChatDiv = (data) => {
-          return `
-            <div class="flex gap-1 justify-end mt-3">
-              <p
-                class="bg-gradient-to-tr from-blue-900 to-blue-300 py-2 h-fit px-3 text-lg text-right text-white shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%]"
-              >
-                ${data}
-              </p>
-              <img
-                src="img/user.jpg"
-                class="w-6 h-6 rounded-full ml-2 mb-1"
-                alt=""
-              />
-            </div>
-          `;
-        };
-  
-        const aiChatDiv = (data) => {
-          return `
-            <div class="flex gap-1 justify-start mt-3">
-              <img
-                src="img/chat-bot.jpg"
-                class="w-6 h-6 rounded-full ml-2 mb-1"
-                alt=""
-              />
-              <p
-                class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-bl-3xl rounded-r-3xl w-fit max-w-[90%] md:max-w-[60%]"
-              >
-                ${data}
-              </p>
-            </div>
-          `;
-        };
-  
-        const userMessage = document.getElementById("message");
-        const chatContainer = document.getElementById("chat-container");
-        const chatForm = document.getElementById("chat-form");
-  
-        const handleSubmit = (event) => {
-          event.preventDefault();
-          const userPrompt = userMessage.value.trim();
-          if (userPrompt === "") return;
-  
-          chatContainer.innerHTML += userChatDiv(userPrompt);
-          userMessage.value = "";
-  
-          // Simulate AI response
-          setTimeout(() => {
-            const response = "This is a simulated AI response.";
-            chatContainer.innerHTML += aiChatDiv(response);
-          }, 1000);
-        };
-  
-        chatForm.addEventListener("submit", handleSubmit);
-      </script>
-    <button onclick="closeChatbot()" class="btn btn-sm">X</button>
-</div>
 
   <!-- Footer Start -->
   <div class="container-fluid bg-dark text-body footer  wow fadeIn" data-wow-delay="0.1s">
@@ -273,8 +292,20 @@
 
 <script>
     // Function to show chatbot popup with custom content
-    function showChatbot(content) {
-        document.getElementById('chatbot-content').innerText = content;
+    function showChatbot1(content) {
+        document.getElementById('chatbot-content1').innerText = content;
+        document.getElementById('chatbot').style.display = 'block';
+    }
+    function showChatbot2(content) {
+        document.getElementById('chatbot-content2').innerText = content;
+        document.getElementById('chatbot').style.display = 'block';
+    }
+    function showChatbot3(content) {
+        document.getElementById('chatbot-content3').innerText = content;
+        document.getElementById('chatbot').style.display = 'block';
+    }
+    function showChatbot4(content) {
+        document.getElementById('chatbot-content4').innerText = content;
         document.getElementById('chatbot').style.display = 'block';
     }
 
@@ -288,9 +319,15 @@
         e.preventDefault();
         
         const desiredGrade = document.getElementById('desired-grade').value;
-        const chatbotMessage = `To achieve the grade of ${desiredGrade}, we recommend completing advanced training in industrial operations, enhancing leadership skills, and mastering AI-driven tools.`;
-        
-        showChatbot(chatbotMessage);
+        const chatbotMessage = `Hi,`
+        const chatbotMessage2 =`To achieve the grade of ${desiredGrade}:`;
+        const chatbotMessage3 =`we recommend completing advanced training in industrial operations, developing expertise in modern engineering practices, enhancing leadership and communication skills, and mastering AI-driven tools.`;
+        const chatbotMessage4 = `Do you have any questions?`;
+
+        showChatbot1(chatbotMessage);
+        showChatbot2(chatbotMessage2);
+        showChatbot3(chatbotMessage3);
+        showChatbot4(chatbotMessage4);
     });
 </script>
 <!-- JavaScript Libraries -->
