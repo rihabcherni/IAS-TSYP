@@ -294,16 +294,6 @@
                 <p id="chatbot-content2"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
                 ></p> 
             </div>
-            <div class="flex gap-11 justify-start mt-3">
-                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
-                <p id="chatbot-content3"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
-                ></p> 
-            </div>
-            <div class="flex gap-11 justify-start mt-3">
-                <img  src="img/chat-bot.jpg" class="w-6 h-6 rounded-full ml-2 mb-1" alt="" />
-                <p id="chatbot-content4"  class="bg-gray-100 py-2 h-fit px-3 text-lg text-gray-600 shadow-md rounded-br-3xl rounded-l-3xl w-fit max-w-[90%] md:max-w-[60%] ml-auto"
-                ></p> 
-            </div>
             <!-- Chat content dynamically loaded -->
         </div>
         <form id="chat-form" class="w-full flex items-center mt-4">
@@ -383,19 +373,11 @@
             document.getElementById('chatbot-content1').innerText = content;
             document.getElementById('chatbot').style.display = 'block';
         }
-        function showChatbot2(content) {
+        function showChatbot1(content) {
             document.getElementById('chatbot-content2').innerText = content;
             document.getElementById('chatbot').style.display = 'block';
         }
-        function showChatbot3(content) {
-            document.getElementById('chatbot-content3').innerText = content;
-            document.getElementById('chatbot').style.display = 'block';
-        }
-        function showChatbot4(content) {
-            document.getElementById('chatbot-content4').innerText = content;
-            document.getElementById('chatbot').style.display = 'block';
-        }
-    
+       
         // Function to close chatbot popup
         function closeChatbot() {
             document.getElementById('chatbot').style.display = 'none';
@@ -407,14 +389,10 @@
             
             const desiredGrade = document.getElementById('desired-grade').value;
             const chatbotMessage = `Hi,`
-            const chatbotMessage2 =`To achieve the grade of ${desiredGrade}:`;
-            const chatbotMessage3 =`we recommend completing advanced training in industrial operations, developing expertise in modern engineering practices, enhancing leadership and communication skills, and mastering AI-driven tools.`;
-            const chatbotMessage4 = `Do you have any questions?`;
+            const chatbotMessage2 = `Do you have any questions?`;
     
             showChatbot1(chatbotMessage);
             showChatbot2(chatbotMessage2);
-            showChatbot3(chatbotMessage3);
-            showChatbot4(chatbotMessage4);
         });
     </script>
     
